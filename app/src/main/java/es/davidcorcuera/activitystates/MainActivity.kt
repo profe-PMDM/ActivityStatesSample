@@ -16,6 +16,8 @@ class MainActivity : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         binding = DataBindingUtil.setContentView(this, R.layout.activity_main)
 
+        MyLogger(lifecycle)
+
         // Check whether we're recreating a previously destroyed instance
         if (savedInstanceState != null) {
             contador = savedInstanceState.getInt(STATE_COUNT, 0)
@@ -27,7 +29,6 @@ class MainActivity : AppCompatActivity() {
             contador++
             binding.contador = contador
         }
-        Log.i("MainActivity", "onCreate Called")
     }
 
     override fun onSaveInstanceState(outState: Bundle) {
@@ -37,36 +38,4 @@ class MainActivity : AppCompatActivity() {
         outState.putInt(STATE_COUNT, contador)
         Log.i("MainActivity","onSaveInstanceState Called")
     }
-
-    override fun onStart() {
-        super.onStart()
-        Log.i("MainActivity", "onStart Called")
-
-    }
-
-    override fun onResume() {
-        super.onResume()
-        Log.i("MainActivity", "onResume Called")
-    }
-
-    override fun onPause() {
-        super.onPause()
-        Log.i("MainActivity", "onPause Called")
-    }
-
-    override fun onStop() {
-        super.onStop()
-        Log.i("MainActivity", "onStop Called")
-    }
-
-    override fun onDestroy() {
-        super.onDestroy()
-        Log.i("MainActivity", "onDestroy Called")
-    }
-
-    override fun onRestart() {
-        super.onRestart()
-        Log.i("MainActivity", "onRestart Called")
-    }
-
 }

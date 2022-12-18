@@ -2,14 +2,9 @@ package es.davidcorcuera.activitystates
 
 import android.util.Log
 import androidx.lifecycle.DefaultLifecycleObserver
-import androidx.lifecycle.Lifecycle
 import androidx.lifecycle.LifecycleOwner
 
-class MyLogger(lifecycle: Lifecycle) : DefaultLifecycleObserver {
-
-    init {
-        lifecycle.addObserver(this)
-    }
+class MyLogger() : DefaultLifecycleObserver {
 
     override fun onCreate(owner: LifecycleOwner) {
         Log.i("MyLogger", "onCreate Called")

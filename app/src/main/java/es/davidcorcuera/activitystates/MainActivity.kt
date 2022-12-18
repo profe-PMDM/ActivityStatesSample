@@ -16,7 +16,7 @@ class MainActivity : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         binding = DataBindingUtil.setContentView(this, R.layout.activity_main)
 
-        MyLogger(lifecycle)
+        this.lifecycle.addObserver(MyLogger())
 
         // Check whether we're recreating a previously destroyed instance
         if (savedInstanceState != null) {
